@@ -28,7 +28,7 @@ public class AutoIdempotentInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if(!(handler instanceof HandlerMethod)) {
-            return false;
+            return true;
         }
         HandlerMethod method = (HandlerMethod)handler;
         AutoIdempotent autoIdempotent = method.getMethodAnnotation(AutoIdempotent.class);
