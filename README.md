@@ -1,2 +1,3 @@
-# repeatcheck
+
 幂等性重复检验
+#token机制，每次接口请求前先获取一个token，然后再下次请求的时候在请求的header体中加上这个token，后台进行验证，如果验证通过删除token，下次请求再次判断token
