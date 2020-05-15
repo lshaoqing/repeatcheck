@@ -1,5 +1,6 @@
 package com.fu.linmou.config;
 
+import com.fu.linmou.handler.GlobalExceptionHandler;
 import com.fu.linmou.interceptor.AutoIdempotentInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
 
+
     @Bean
     public AutoIdempotentInterceptor autoIdempotentInterceptor() {
        return new AutoIdempotentInterceptor();
@@ -23,5 +25,6 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(autoIdempotentInterceptor());
+
     }
 }

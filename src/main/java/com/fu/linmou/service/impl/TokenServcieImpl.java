@@ -2,7 +2,7 @@ package com.fu.linmou.service.impl;
 
 import com.fu.linmou.config.Constant;
 import com.fu.linmou.config.ServiceException;
-import com.fu.linmou.enumation.ServiceExceptionEnum;
+import com.fu.linmou.constans.ServiceExceptionEnum;
 import com.fu.linmou.service.TokenServcie;
 import com.fu.linmou.util.GUIDUtil;
 import com.fu.linmou.util.RedisUtil;

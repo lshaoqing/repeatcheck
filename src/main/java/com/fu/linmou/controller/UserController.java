@@ -1,14 +1,21 @@
 package com.fu.linmou.controller;
 
+import com.fu.linmou.service.UserService;
 import com.fu.linmou.util.CommonResult;
+import com.fu.linmou.vo.UserAddDTO;
+import com.fu.linmou.vo.UserUpdateDTO;
 import com.fu.linmou.vo.UserVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.auth.In;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +28,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Api(tags = "用户模块接口")
+@Validated
 public class UserController {
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/list")
     @ApiOperation(value = "查询用户列表", notes = "接口吧")
@@ -55,4 +66,23 @@ public class UserController {
 
         return CommonResult.success(0);
     }
+
+
+    @GetMapping("/get")
+    public CommonResult get(@RequestParam("id") @Min(value = 1L, message = "编号必须大于 0") Integer id) {
+       return CommonResult.success("成功");
+    }
+
+    @PostMapping("/add2")
+    public CommonResult add(@Valid @RequestBody UserAddDTO addDTO) {
+        userService.add(new UserAddDTO());
+        return CommonResult.success("特成功");
+    }
+
+    @PostMapping("/update")
+    public CommonResult update(@Valid UserUpdateDTO updateGenderDTO) {
+        int i = userService.updateUser();
+        return CommonResult.success(i);
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.fu.linmou.enumation;
+package com.fu.linmou.constans;
 
 /**
  * @author linMou
@@ -9,7 +9,14 @@ package com.fu.linmou.enumation;
 public enum ServiceExceptionEnum {
     ILLEGAL_ARGUMENT(100,"错误1"),
     REPETITIVE_OPERATION(200, "错误2"),
-    REPETITIVE_OPERATION_2(300, "错误3");
+    REPETITIVE_OPERATION_2(300, "错误3"),
+
+    MISSING_REQUEST_PARAM_ERROR(500,"错误"),
+
+    SYS_ERROR(500,"我错了"),
+
+    INVALID_REQUEST_PARAM_ERROR(500, "请求参数不合法");
+
 
 
     private int code;
