@@ -15,4 +15,4 @@ spring:
         min-idle: 0 # 默认连接池最小空闲的连接数，默认为 0 。允许设置 0 和 正数。
         max-wait: -1 # 连接池最大阻塞等待时间，单位：毫秒。默认为 -1 ，表示不限制
   profiles:
-    active: druid
+    active: quartz

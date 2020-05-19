@@ -21,24 +21,29 @@ public class LinmouApplication implements CommandLineRunner {
         SpringApplication.run(LinmouApplication.class, args);
     }
 
-    @Resource(name = "ordersDataSource")
-    private DataSource ordersDataSource;
+    //@Resource(name = "ordersDataSource")
+    //private DataSource ordersDataSource;
 
-    @Resource(name = "usersDataSource")
-    private DataSource usersDataSource;
+    //@Resource(name = "usersDataSource")
+    //private DataSource usersDataSource;
     // @Resource(name = "orderDataSource")
     // DataSource orderDataSource;
     //
     // @Resource(name = "usersDataSource")
     // DataSource usersDataSource;
+    @Resource(name="userDataSource")
+    private DataSource userDataSource;
+
+    @Resource(name = "quartzDataSource")
+    private  DataSource quartzDataSource;
 
     @Override
     public void run(String... args) throws Exception {
         // orders 数据源
-        log.info("[run][获得数据源：{}]", ordersDataSource.getClass());
+        log.info("[run][获得数据源：{}]", quartzDataSource.getClass());
 
         // users 数据源
-        log.info("[run][获得数据源：{}]", usersDataSource.getClass());
+        log.info("[run][获得数据源：{}]", userDataSource.getClass());
 
     }
 
