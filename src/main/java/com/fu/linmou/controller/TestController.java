@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 /**
  * @author linMou
  * @Description:
@@ -31,5 +33,20 @@ public class TestController {
     public CommonResult testIdempotent() {
         String data = "10086";
         return CommonResult.success(data);
+    }
+
+
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>(5);
+        ArrayList<Integer> delete = new ArrayList<>(3);
+        delete.add(0);
+        delete.add(1);
+        delete.add(2);
+        delete.add(3);
+        delete.add(4);
+        for(int i = 0; i < 5; i++) {
+            list.add(i);
+        }
+        boolean equals = list.equals(delete);
     }
 }
